@@ -1,0 +1,570 @@
+body {    
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #131313;
+    /* overflow: hidden; */
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.header{
+    width: 100%;
+    position: relative;
+
+}
+.images-header{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: blue;
+}
+.images-header h1,
+.images-header h5 {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom: calc(100px);
+    /*Positionatthebottomofthecontainer*/width: 100%;
+    /*Takeupfullwidthofthecontainer*/margin: 32px;
+    /*Removedefaultmargin*/box-sizing: border-box;
+    /*Includepaddinginthewidth*/opacity: 0;
+    /*Startwithopacity0tocreatethefadeeffect*/animation: fadeLeftToRight 1s ease forwards;
+
+    -webkit-animation: fadeLeftToRight 1s ease forwards;
+}
+
+
+/* Define the keyframes for the animation */
+@keyframes fadeLeftToRight {
+    0% {
+        opacity: 0;
+        transform: translateX   (-100%);
+        -webkit-transform: translateX   (-100%);
+        -moz-transform: translateX   (-100%);
+        -ms-transform: translateX   (-100%);
+        -o-transform: translateX   (-100%);
+}
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+}
+
+/* Apply the animation to h1 and h5 elements */
+.header h1 {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom: calc(70px); /* Position at the bottom of the container */
+    width: 100%; /* Take up full width of the container */
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Adjust padding as needed */
+    box-sizing: border-box; /* Include padding in the width */
+    opacity: 0; /* Start with opacity 0 to create the fade effect */
+    animation: fadeLeftToRight 1s ease forwards; /* Apply the animation */
+}
+
+.header h5 {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom: calc(40px); /* Position at the bottom of the container */
+    width: 100%; /* Take up full width of the container */
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Adjust padding as needed */
+    box-sizing: border-box; /* Include padding in the width */
+    opacity: 0; /* Start with opacity 0 to create the fade effect */
+    animation: fadeLeftToRight 1s ease forwards; /* Apply the animation */
+    
+}
+
+.header .cursor img {
+    width: 5%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(50% - 250px);
+    /*Adjustasneeded*/display: block;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    animation: moveUpDown 2s infinite alternate;
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-20px);
+        -webkit-transform: translateX(-50%) translateY(-20px);
+        -moz-transform: translateX(-50%) translateY(-20px);
+        -ms-transform: translateX(-50%) translateY(-20px);
+        -o-transform: translateX(-50%) translateY(-20px);
+}
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+.cursor h5, h1, p {
+    
+    border: 1px solid black; /* Add border around the <p> element */
+    padding: 10px; /* Add padding inside the <p> element */
+    color: #fff;
+    display: none;
+}
+
+
+.images-header img {
+    width: 100%;
+    margin: 0;
+    height: auto;
+    /* border-style: none; */
+    padding: 0;
+    /* position: absolute; */
+    top: 0;
+    animation: fadeDown 1s ease-in-out forwards;
+    -webkit-animation: fadeDown 1s ease-in-out forwards;
+    z-index: -1;
+    /* display: block; */
+    /* pointer-events: none; 
+    object-fit: cover; */
+}
+
+@keyframes fadeDown {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+        -webkit-transform: translateY(-100px);
+        -moz-transform: translateY(-100px);
+        -ms-transform: translateY(-100px);
+        -o-transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* navigation */
+
+/* Sidebar */
+
+.sidebar {
+    height: auto; /* Adjusted to fit the viewport height */
+    width: 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Added high z-index */
+    /* background-color: #333; */
+    padding-top: 20px;
+    font-size: 2vw;
+}
+
+.sidebar a {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    padding-left: 40px; /* Adjust the padding to accommodate the image and text */
+    line-height: 30px; /* Adjust the line height for vertical alignment */
+    position: relative; /* Needed for absolute positioning of pseudo-element */
+    width: 100%;
+}
+
+
+.dropdown-content {
+
+    position: absolute;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    /*Setinitialopacityto0*/transition: opacity 1s ease;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -ms-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    background-color: red;
+}
+
+.dropdown-content a {
+
+    line-height: 30px;
+    color: #fff;
+    padding-left: 40px;
+}
+
+.dropdown-content a:hover {
+    font-size: larger;
+}
+
+.sidebar:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Fade in the dropdown */
+}
+
+.sidebar a::before {
+    font-style: inherit;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #2d3f7b);
+    /*Adjustgradientasneeded*/z-index: 1;
+    /*Ensurethepseudo-elementsitsbelowthetext*/animation: fadeLeftToRight 2s linear infinite;
+    -webkit-animation: fadeLtoR 2s linear infinite;
+    z-index: -1;
+}
+
+@keyframes fadeLtoR {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+.sidebar a:hover {
+    font-size: larger;
+    /* background-image: url('images/blade_1-removebg-preview.png'); */
+    background-size: contain; /* Ensures the image fits inside the link */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+
+/* Skins contents */
+
+.skin-content {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* for slider skin*/
+/* You can customize these styles as needed */
+.slider-for,
+.slider-nav {
+  width: 80%; /* Adjust width as needed */
+  margin: 0 auto; /* Center the slider */
+}
+
+.slider-nav {
+  margin-top: 20px; /* Add spacing between sliders */
+
+}
+
+.slick-slide img {
+  width: 100%; /* Ensure images fill their containers */
+}
+
+
+.slider-nav img {
+    width: 100%;
+    height: auto;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    /*Addtransitionwithease-in-outtimingfunction*/display: inline-block;
+    /*Displayimagesasinline-block*/vertical-align: middle;
+
+    -webkit-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    -moz-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    -ms-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    -o-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+  
+.slider-nav img:hover {
+    width: 95%;
+    height: auto;
+}
+
+.slider-nav {
+    margin-top: 20px;
+    height: 100px;
+    text-align: center; /* Center images horizontally */
+}
+
+.slider-nav div {
+    padding: 0 5px;
+}
+
+  
+.slick-dots {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: red;
+}
+
+
+
+
+.slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.slick-dots li.slick-active button {
+    background-color: red
+}
+
+
+
+.content {
+
+    margin-bottom: 20px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-color: red;
+    display: block;
+}
+
+@keyframes fadeUpAnimation {
+    0% {
+        transform: translateY(500px);
+        opacity: 0;
+        -webkit-transform: translateY(500px);
+        -moz-transform: translateY(500px);
+        -ms-transform: translateY(500px);
+        -o-transform: translateY(500px);
+}
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+}
+}
+
+.content.fade-up {
+    animation: fadeUpAnimation 1s ease forwards;
+    -webkit-animation: fadeUpAnimation 1s ease forwards;
+}
+.content h3,
+.content p {
+    padding: 24px;
+    color: #fff;
+}
+
+
+
+
+
+
+/* .play-video {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.thump:hover + .play-video {
+    width: 70px;
+    height: auto;
+} */
+
+
+
+
+/* Tài khoản */
+
+.account-info {
+    height: auto; /* Adjusted to fit the viewport height */
+    width: 10%;
+    position: fixed;
+    top: 0;
+    left: 90%;
+    z-index: 1000; /* Added high z-index */
+    /* background-color: #333; */
+    padding-top: 20px;
+    right: -20px;
+
+}
+
+.account-info a{
+    color: #fff;
+}
+
+.video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Adjust size as needed */
+    height: auto;
+    display: none;
+  }
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+  
+
+/* video */
+.video-popup {
+    display: table-cell;
+    vertical-align: middle;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Start with transparent background */
+    animation: fadeInAnimation 0.5s ease-in forwards; /* Apply the fade-in animation */
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutAnimation {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Video popup */
+
+.video-popup-content {
+    display: block;
+    margin: 5% auto;
+    max-width: 80%;
+    max-height: 80%;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    width: 100%;
+}
+
+.close {
+    color: #fff;
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    font-size: 80px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* .content .thump {
+    width: 384px;
+    height: 216px;
+    cursor: pointer;
+    display: block;
+} */
+
+
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+.video-popup-iframe {
+    width: 513px;
+    height: 314px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+
+}
+
+
+
+/* .arrow {
+    background-color: green;
+    position: absolute;
+    top: 35%;
+    width: 100%;
+}
+
+.next_caro {
+
+    transform: translateX(20%);
+    -webkit-transform: translateX(20%);
+    -moz-transform: translateX(20%);
+    -ms-transform: translateX(20%);
+    -o-transform: translateX(20%);
+}
+
+.previous_caro {
+
+    transform: translateX(-20%);
+    -webkit-transform: translateX(-20%);
+    -moz-transform: translateX(-20%);
+    -ms-transform: translateX(-20%);
+    -o-transform: translateX(-20%);
+} */

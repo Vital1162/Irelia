@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Your Website Name</title>
+    <style>
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+        }
+        
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+        }
+        
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        /* Content styles */
+        .content {
+            margin-left: 250px; /* Same as the width of the sidebar */
+            padding: 20px;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the sidebar and the content stack on top of each other */
+        @media screen and (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .sidebar a {
+                float: left;
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <a href="#">Project 1</a>
+    <a href="#">Project 2</a>
+    <a href="#">Project 3</a>
+    <!-- Add more project links as needed -->
+</div>
+
+<div class="content">
+    <!-- Your project content goes here -->
+    <h1>Project 1</h1>
+    <p>Description of Project 1</p>
+
+    <h1>Project 2</h1>
+    <p>Description of Project 2</p>
+
+    <h1>Project 3</h1>
+    <p>Description of Project 3</p>
+</div>
+
+</body>
+</html>
