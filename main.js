@@ -152,6 +152,7 @@ function openVideoPopup(videoURL) {
     videoPopup.style.display = "block";
     videoPopup.style.animation = ""; // Remove animation property to reset animation state
     videoPopup.style.animation = "fadeInAnimation 0.5s ease-in forwards"; // Apply fade-in animation
+    document.body.classList.add('popup-open'); // Add class to body
 }
 
 function closeVideoPopup() {
@@ -160,6 +161,7 @@ function closeVideoPopup() {
     videoIframe.src = ''; // Stop the video when closing the popup
     videoPopup.style.animation = ""; // Remove animation property to reset animation state
     videoPopup.style.animation = "fadeOutAnimation 0.5s ease-out forwards"; // Apply fade-out animation
+    document.body.classList.remove('popup-open'); // Remove class from body
     setTimeout(() => { /* Hide the popup after animation completes */
         videoPopup.style.display = "none";
     }, 500); // Adjust the timeout value to match the duration of the fade-out animation
@@ -167,6 +169,7 @@ function closeVideoPopup() {
 // Close video popup when clicked outside the popup content
 window.addEventListener('click', function(event) {
     var videoPopup = document.getElementById("video-popup");
+    var docPopup = document.getElementById('popup');
     if (event.target == videoPopup) {
         closeVideoPopup();
     }
@@ -175,26 +178,45 @@ window.addEventListener('click', function(event) {
 
 
 // popup table
-document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.popup-btn');
-    const popupContainer = document.getElementById('popup-container');
-    const closeButtons = document.querySelectorAll('.close-btn');
+const popupButtons = document.querySelectorAll('.popup-btn');
+const popupContainer = document.getElementById('popup-container');
+const popups = document.querySelectorAll('.popup');
+const closeButtons = document.querySelectorAll('.close-btn');
 
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            const popupId = this.getAttribute('data-popup');
-            const popup = document.getElementById(`${popupId}-popup`);
-            popupContainer.style.display = 'block';
-            popup.style.display = 'block';
-        });
-    });
-
-    closeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            popupContainer.style.display = 'none';
-            document.querySelectorAll('.popup').forEach(popup => {
-                popup.style.display = 'none';
-            });
-        });
+popupButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const popupId = button.getAttribute('data-popup');
+        const popup = document.getElementById(popupId + '-popup');
+        popupContainer.style.display = 'block';
+        popup.style.display = 'block';
+        popup.style.opacity = 1;
+        document.body.classList.add('popup-open'); 
     });
 });
+
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        popupContainer.style.display = 'none';
+        popups.forEach(popup => {
+            popup.style.display = 'none';
+            popup.style.opacity = 0;
+            document.body.classList.remove('popup-open'); 
+        });
+
+    });
+});
+
+popupContainer.addEventListener('click', (event) => {
+    if (event.target === popupContainer) {
+        closePopup();
+    }
+});
+
+function closePopup() {
+    popupContainer.style.display = 'none';
+    popups.forEach(popup => {
+        popup.style.display = 'none';
+        popup.style.opacity = 0;
+        document.body.classList.remove('popup-open');
+    });
+}
