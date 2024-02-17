@@ -8,35 +8,23 @@ window.addEventListener('scroll', function() {
 
 });
 
+// JavaScript to handle scrolling and background movement
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const movingBg = document.querySelector('.background');
 
+    // Adjust the background position based on scroll direction
+    if (scrollPosition > this.lastScrollPosition || scrollPosition === 0) {
+        // Scrolling down or at the top
+        movingBg.style.backgroundPosition = `${scrollPosition/10}px 0`;
+    } else {
+        // Scrolling up
+        movingBg.style.backgroundPosition = `-${(scrollPosition)/10}px 0`;
+    }
 
-
-
-// playusound
-
-// // Create an Audio object
-// var sound = new Audio('audio/maker.mp3');
-
-
-// // Call toggleSound() when the page loads to play the audio
-// window.onload = function() {
-//     sound.play();
-// };
-
-
-// // Function to toggle sound play/pause
-// function toggleSound() {
-//     if (sound.paused) {
-//         sound.play();
-//     } else {
-//         sound.pause();
-//         sound.currentTime = 0; // Reset sound to beginning
-//     }
-// }
-
-
-// // Event listener for the button
-// document.getElementById('toggleSoundButton').addEventListener('click', toggleSound);
+    // Update last scroll position
+    this.lastScrollPosition += scrollPosition;
+});
 
 // play sound
 const video = document.getElementById('bg-maker');
@@ -49,19 +37,7 @@ const video = document.getElementById('bg-maker');
         muteButton.innerHTML = video.muted ? '<i class="fa-solid fa-volume-off"></i>' : '<i class="fas fa-volume-up"></i>';
     });
 
-    // decreaseVolumeButton.addEventListener('click', () => {
-    //     if (video.volume > 0) {
-    //         video.volume -= 0.1; // Decrease volume by 10%
-    //     }
-    //     updateMuteButton();
-    // });
 
-    // increaseVolumeButton.addEventListener('click', () => {
-    //     if (video.volume < 1) {
-    //         video.volume += 0.1; // Increase volume by 10%
-    //     }
-    //     updateMuteButton();
-    // });
 
 // scroll down animation when click into id
 document.addEventListener('DOMContentLoaded', function() {
@@ -125,11 +101,7 @@ $('.slider-nav').slick({
 });
 
 
-// $('.multiple-items').slick({
-//     infinite: true,
-//     slidesToShow: 3,
-//     slidesToScroll: 3
-// });
+
 
 $(document).ready(function(){
     $(".sidebar a").on('click', function(event) {
@@ -177,7 +149,7 @@ window.addEventListener('click', function(event) {
 
 
 
-// popup table
+// popup table //
 const popupButtons = document.querySelectorAll('.popup-btn');
 const popupContainer = document.getElementById('popup-container');
 const popups = document.querySelectorAll('.popup');
