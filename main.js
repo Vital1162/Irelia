@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
 
 });
 
-// JavaScript to handle scrolling and background movement
+//  scrolling and background movement
 window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     const movingBg = document.querySelector('.background');
